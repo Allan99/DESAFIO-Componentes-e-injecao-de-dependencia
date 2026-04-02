@@ -1,7 +1,8 @@
 package com.exercicio.injecaoDependencia;
 
 import com.exercicio.injecaoDependencia.entities.Order;
-import com.exercicio.injecaoDependencia.services.ShippingService;
+import com.exercicio.injecaoDependencia.services.OrderService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,6 +12,9 @@ import java.util.Scanner;
 
 @SpringBootApplication
 public class InjecaoDependenciaApplication implements CommandLineRunner {
+
+	@Autowired
+	private OrderService orderService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(InjecaoDependenciaApplication.class, args);
@@ -27,10 +31,8 @@ public class InjecaoDependenciaApplication implements CommandLineRunner {
 
 		Order order = new Order(orderCode, basic, discount);
 
-		ShippingService shippingService = new ShippingService();
-
 		System.out.println("Pedido código " + orderCode);
-		System.out.printf("Valor total: R$ %.2f%n", shippingService.shipment(order));
+		System.out.printf("Valor total: R$ %.2f%n", orderService.total(order));
 
 		sc.close();
 	}
