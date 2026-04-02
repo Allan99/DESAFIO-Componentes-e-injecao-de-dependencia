@@ -1,4 +1,4 @@
-package com.exercicio.injecaoDependencia.com.exercicio.inkecaoDependencia.entities;
+package com.exercicio.injecaoDependencia.entities;
 
 import java.util.Objects;
 
