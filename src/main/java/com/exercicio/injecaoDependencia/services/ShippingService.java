@@ -1,7 +1,9 @@
 package com.exercicio.injecaoDependencia.services;
 
 import com.exercicio.injecaoDependencia.entities.Order;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ShippingService {
 
     public double shipment(Order order){
